@@ -28,7 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'adamzhang-django-realestate.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -92,6 +91,9 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
